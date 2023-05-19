@@ -20,5 +20,13 @@ def eat_lunch(food):
                 print(f"First I eat {food[0]}")
             else:
                 print(f"Next I eat {food[i]}")
+
+
+#what to put in the terminal to show result(s) of function being used
+hello()
+print(pack(1,2,3))
+print(pack('boop', 'beep', 'bop'))
+eat_lunch([])
+eat_lunch(['pizza', 'popcorn', 'icecream'])
             
     
