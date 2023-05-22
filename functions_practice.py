@@ -22,11 +22,28 @@ def eat_lunch(food):
                 print(f"Next I eat {food[i]}")
 
 
+#create a function to get the max number of any object
+def max_number(m, a, x):
+    return max(m, a, x)
+
+#create a function called multi_list() to multiply all numbers in a list
+def multi_list(*args):
+    sum = 1
+    for num in args:
+        sum *= num
+    return sum 
+
+#Write a Python function called rev_string() to reverse a string.
+
+
 #what to put in the terminal to show result(s) of function being used
 hello()
 print(pack(1,2,3))
 print(pack('boop', 'beep', 'bop'))
 eat_lunch([])
 eat_lunch(['pizza', 'popcorn', 'icecream'])
+print(max(1, 2, 3))
+print(multi_list(2, 3, 4))
             
     
+
