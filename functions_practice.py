@@ -34,7 +34,34 @@ def multi_list(*args):
     return sum 
 
 #Write a Python function called rev_string() to reverse a string.
+def rev_string(str):
+    return str[::-1]
 
+# Write a Python function called num_within() to check whether a number falls in a given range.
+def num_within(n, u, m):
+    return n in range(u, m + 2)
+
+# Write a Python function called pascal() that prints out the first n rows of Pascal's triangle.
+def pascal(n):
+    num = ''
+    prev_num = ''
+    for e in range(n):
+        if e == 0:
+            prev_num = '1'
+            num += f'{prev_num}\n'
+        elif e == 1:
+            prev_num = '1 1'
+            num += f'{prev_num}\n'
+        else:
+            current_num = ''
+            split = prev_num.split()
+            for i, n in enumerate(split):
+                if i != len(split) - 1:
+                    number = int(n) + int(split[i+1])
+                    current_num += f'{str(number)} '
+            prev_num = f'1 {current_num}1'
+            num += f'{prev_num}\n'
+    return num
 
 #what to put in the terminal to show result(s) of function being used
 hello()
@@ -44,6 +71,10 @@ eat_lunch([])
 eat_lunch(['pizza', 'popcorn', 'icecream'])
 print(max(1, 2, 3))
 print(multi_list(2, 3, 4))
+print(rev_string('cookies'))
+print(num_within(3, 1, 3)) #true
+print(num_within(10,2,5)) #false
+print(pascal(6))
             
     
 
