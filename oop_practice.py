@@ -92,7 +92,7 @@ class Customer(Person):
       self.in_zoo = False
       zoo.remove_customer(self.name)
     else:
-      print(f'{self.name} this is not how you leave the Zoo')
+      print(f'{self.name}...you can not leave a place you are not in')
 
 
 
