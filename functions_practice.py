@@ -67,6 +67,19 @@ def pascal(n):
 # flatten_dict({'a': 1, 'b': {'x': 2, 'y': 3}, 'c': 4})
 #{'a': 1, 'b.x': 2, 'b.y': 3, 'c': 4}
 
+def flatten_dict(d):
+    result = dict()
+    for i in d.keys():
+        if type(d[i]) == dict:
+            #value is dict so we must flatten it
+            for k,v in d[i].items():
+                new_key = i + "." + k #make new pair
+                result[new_key] = v #add k:v pair
+        else:
+                #add the k:v pair to result dictionary
+                result[i] = d[i]
+    return result
+
 
 
 #Problem 2: Write a function unflatten_dict to do reverse of flatten_dict.
@@ -92,6 +105,7 @@ print(rev_string('cookies'))
 print(num_within(3, 1, 3)) #true
 print(num_within(10,2,5)) #false
 print(pascal(6))
+print(flatten_dict({'a': 1, 'b': {'i': 2, 'j': 3}, 'c': 4}))
             
     
 
