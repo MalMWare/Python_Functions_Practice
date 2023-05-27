@@ -105,10 +105,15 @@ def unflatten_dict(d):
 
 
 #Problem 3: Write a function treemap to map a function over nested list.
-
 #treemap(lambda x: x*x, [1, 2, [3, 4, [5]]])
 #[1, 4, [9, 16, [25]]]
-
+def treemap(func, lst):
+    for i in range(len(lst)):
+        if type(lst[i]) == list:
+            lst[i] = treemap(func, lst[i])
+        else:
+            lst[i] = func(lst[i])
+    return lst
 
 #what to put in the terminal to show result(s) of function being used
 hello()
@@ -124,5 +129,5 @@ print(num_within(10,2,5)) #false
 print(pascal(6))
 print(flatten_dict({'a': 1, 'b': {'i': 2, 'j': 3}, 'c': 4}))
 print(unflatten_dict({'a': 1, 'b.i': 2, 'b.j': 3, 'c': 4}))
-    
+print(treemap(lambda i: i*i, [1, 2, [3, 4, [5]]]))
 
