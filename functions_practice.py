@@ -86,6 +86,23 @@ def flatten_dict(d):
 #unflatten_dict({'a': 1, 'b.x': 2, 'b.y': 3, 'c': 4})
 #{'a': 1, 'b': {'x': 2, 'y': 3}, 'c': 4}
 
+def unflatten_dict(d):
+    result = dict()
+    for i in d.keys():
+        if "." in i:
+            #this should be nested
+            new_key, sep, inner_key = i.partition(".")
+        #create dictionary if not yet created
+            if new_key not in result.keys():
+                result[new_key] = dict()
+        #add elements to inner dictionary
+            result[new_key][inner_key] = d[i]
+        else:
+            #add the k:v pair to result dictionary
+            result[i] = d[i]
+    return result
+
+
 
 #Problem 3: Write a function treemap to map a function over nested list.
 
@@ -106,6 +123,6 @@ print(num_within(3, 1, 3)) #true
 print(num_within(10,2,5)) #false
 print(pascal(6))
 print(flatten_dict({'a': 1, 'b': {'i': 2, 'j': 3}, 'c': 4}))
-            
+print(unflatten_dict({'a': 1, 'b.i': 2, 'b.j': 3, 'c': 4}))
     
 
