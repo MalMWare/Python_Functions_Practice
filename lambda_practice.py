@@ -28,9 +28,10 @@ print(cubed([3,6,9,2]))
 #Problem 3: Write a lambda function to determine whether a number is even or odd (the function should return True or False), and then use the function and a list comprehension to create a new list of booleans, where even numbers are True and odd numbers are False.
 
 
-
 # Problem 4: Use a list comprehension to create a list of the numbers from 1 to 100 (including 100).
 #Rewrite functions above as Lambda Functions
+num = [i for i in range(1, 101)]
+print(num)
 
 # Problem 5: Use a dictionary comprehension to count the length of each word in a sentence.
 perimeter = lambda side_length: side_length * 4
