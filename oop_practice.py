@@ -195,15 +195,24 @@ class Podracer:
     self.condition = "repaired"
 
 
+
 # Define a new class, that inherits the Podracer class, but also contains a special method called boost that will multiply max_speed by 2.
-class NewPodracer:
+class AnakinsPod(Podraser):
   def __init__(self, max_speed):
     super().__init__(max_speed)
   
   def boost(self):
     self.max_speed *= 2
 
-# Define another class that inherits Podracer and call this one SebulbasPod. 
+# Define another class that inherits Podracer and call this one SebulbasPod.
+class SebulbasPod(Podracer):
+  def __init__(self, condition)
+    super().__init__(condition)
+
+  def flame_jet(self):
+    self.condition = "thrashed"
+
+
 # This class should have a special method called flame_jet that will update the condition of another podracer to "trashed".
 
 '''
