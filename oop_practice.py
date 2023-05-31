@@ -186,7 +186,7 @@ for c in [alice, bob, charlie, dave]:
 
 # First, he'll need a general Podracer class defined with max_speed, condition (perfect, trashed, repaired) and price attributes. 
 class Podracer:
-  def __init__(self, max_speed, condition, price_attributes):
+  def __init__(self, max_speed, condition, price):
     self.max_speed = max_speed
     self.condition = condition
     self.price = price
@@ -194,34 +194,47 @@ class Podracer:
   def repair(self):
     self.condition = "repaired"
 
-
-
 # Define a new class, that inherits the Podracer class, but also contains a special method called boost that will multiply max_speed by 2.
-class AnakinsPod(Podraser):
-  def __init__(self, max_speed):
-    super().__init__(max_speed)
+class AnakinsPod(Podracer):
+  def __init__(self, max_speed, condition, price):
+    super().__init__(max_speed, condition, price)
   
   def boost(self):
     self.max_speed *= 2
+  
+# Define another class that inherits Podracer and call this one SebulbasPod. 
 
-# Define another class that inherits Podracer and call this one SebulbasPod.
+# This class should have a special method called flame_jet that will update the condition of another podracer to "thrashed".
+
 class SebulbasPod(Podracer):
-  def __init__(self, condition)
-    super().__init__(condition)
+  def __init__(self, max_speed, condition, price):
+    super().__init__(max_speed, condition, price)
 
-  def flame_jet(self):
-    self.condition = "thrashed"
+  def flame_jet(self, other):
+    other.condition = "thrashed"
 
+pod1 = Podracer(4, 'thrashed', 500000)
+pod2 = AnakinsPod(2, 'perfect', 100000)
+pod3 = SebulbasPod(3, 'perfect', 300000)
 
-# This class should have a special method called flame_jet that will update the condition of another podracer to "trashed".
+pod1.repair()
+print(pod1.condition)
+
+pod2.boost()
+print(pod2.max_speed)
+
+pod3.flame_jet(pod1)
+print(pod1.condition)
 
 '''
 Make sure to answer the following prompts about your coding experience:
 
 How does this solution demonstrate the four pillars of OOP? (It may not demonstrate all of them, describe only those that apply)
+There are four pillars in OOP and they are Inheritance, Polymorphism, Encapsulation and Abstraction. There is only one that isnt being used and that is Polymorphism. 
+Inheritance is demonstrated because two sub-class inherits methods from the original class. Encapsulation is being used because classes keep the iformation together. Abstraction is used by placing methods inside of classes that can hold all of the information and be broken down into smaller parts later. 
 
 Would it have been easier to implement a solution to this problem using a different coding style? Why or why not?
+no because OOP is the best way to write the code for this problem
 
 How in particular did Object Oriented Programming assist in the solving of this problem?
-
-'''
+By classifying everything so I dont have to repeat the same lines of code over and over again 

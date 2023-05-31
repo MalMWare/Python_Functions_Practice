@@ -3,11 +3,14 @@
 def flatten_arr(array):
   arr = []
   for num in array:
-    for order in num:
-      arr.append[num]
-    return sorted(arr)
+    if type(num) == int:
+      arr.append(num)
+    else:
+      for order in num:
+        arr.append(order)
+  return sorted(arr)
 
-print(sorted([4, 2, 88, 45]))
+print(flatten_arr([4, 2, 88, 45, [1, 300], [40, 28]]))
 
 '''
 How does this solution ensure data immutability?
